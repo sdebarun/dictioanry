@@ -7,4 +7,9 @@ dictionary = json.load(f)
 #get input
 word = input("please enter the word : ")
 word = word.lower()  
-print(dictionary[word])
+#checking if the word exists
+if word in dictionary.keys():
+    print(dictionary[word])
+else:
+    print('The word does not exist')    
+    
