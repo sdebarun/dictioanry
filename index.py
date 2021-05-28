@@ -9,7 +9,9 @@ word = input("please enter the word : ")
 word = word.lower()  
 #checking if the word exists
 if word in dictionary.keys():
+    print('---------------')
     print(dictionary[word])
 else:
     print('The word does not exist')    
     
+f.close()    
