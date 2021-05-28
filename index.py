@@ -4,4 +4,7 @@ import json
 f = open('resources/dictionary.json')
 #reading json data in dictionary format
 dictionary = json.load(f)
-print(dictionary['mixer'])
+#get input
+word = input("please enter the word : ")
+word = word.lower()  
+print(dictionary[word])
