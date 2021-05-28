@@ -10,17 +10,27 @@ def checkSimilarity(word):
     for key in dictionary:
         wordlist.append(key)
     similar_words = difflib.get_close_matches(word,wordlist)
-    i=1
-    for similar_word in similar_words:
-        print(f'{i}. {similar_word}')
-        i=i+1
+    return similar_words
+    
+# def closeMatchInput(serial,words):
 
-#checking if the word exists
 if word in dictionary.keys():
     print('---------------')
     print(dictionary[word])
 else:
-    print('The word does not exist. Did you mean any of the following')    
-    #check similarities
-    checkSimilarity(word)
+    print('The word does not exist.')    
+    close_match = checkSimilarity(word)
+    if len(close_match) > 0:
+        print('Did you mean any of these (select the serial) : ')
+        i=1
+        for similar_word in close_match:
+            print(f'{i}. {similar_word}')
+            i=i+1
+
+    closeword_serial = 'string'
+    while not closeword_serial.isdigit():
+        closeword_serial = input()
+        if not closeword_serial.isdigit():
+            print('Please enter the associated serial number from the above list')
+    print(int(closeword)-1)
 f.close()    
