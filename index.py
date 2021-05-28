@@ -21,16 +21,20 @@ else:
     print('The word does not exist.')    
     close_match = checkSimilarity(word)
     if len(close_match) > 0:
-        print('Did you mean any of these (select the serial) : ')
+        print('Did you mean any of these (type the serial or no) : ')
         i=1
         for similar_word in close_match:
             print(f'{i}. {similar_word}')
             i=i+1
+    closeword_serial = input()
+    if closeword_serial != 'no':
+        print(dictionary[close_match[int(closeword_serial)-1]])
+    # closeword_serial = 'string'
 
-    closeword_serial = 'string'
-    while not closeword_serial.isdigit():
-        closeword_serial = input()
-        if not closeword_serial.isdigit():
-            print('Please enter the associated serial number from the above list')
-    print(int(closeword)-1)
+    # while not closeword_serial.isdigit():
+    #     print(">>>", end="")
+    #     closeword_serial = input()
+    #     if not closeword_serial.isdigit():
+    #         print('Please enter the associated serial number from the above list')
+    
 f.close()    
